@@ -1,0 +1,217 @@
+Update the FinTech dashboard project with the following changes.
+
+IMPORTANT:
+This is a college project and the frontend must ONLY use:
+
+HTML
+CSS
+Vanilla JavaScript
+
+Do NOT use:
+
+TypeScript
+React
+TSX files
+Vite
+Next.js
+Any JavaScript frameworks
+
+---
+
+1. Remove TypeScript and React
+
+Delete all files related to TypeScript and React including:
+
+.ts
+.tsx
+tsconfig.json
+vite.config.ts
+vite-env.d.ts
+
+Delete folders if they contain React code:
+
+src/
+components/
+components/ui/
+
+Remove all React UI component files such as:
+
+slider.tsx
+sidebar.tsx
+progress.tsx
+select.tsx
+pagination.tsx
+popover.tsx
+
+Replace these with standard HTML elements.
+
+---
+
+2. Convert frontend to HTML, CSS, JavaScript
+
+Create this structure:
+
+index.html
+dashboard.html
+expenses.html
+savings.html
+advisory.html
+profile.html
+
+css/style.css
+
+js/dashboard.js
+js/expenses.js
+js/savings.js
+js/advisory.js
+js/profile.js
+
+Use plain HTML for layout and CSS for styling.
+
+Use JavaScript fetch() to communicate with backend APIs.
+
+---
+
+3. Change project name everywhere
+
+Replace the name:
+
+NovaFin
+
+with:
+
+FinTech
+
+Update this in:
+
+navbar logo
+page titles
+sidebar
+browser tab title
+headings
+UI text
+
+The app name must always display:
+
+FinTech
+
+---
+
+4. Update the Savings Goals page
+
+Design it like a modern fintech dashboard.
+
+Title:
+
+Savings Goals
+
+Subtitle:
+
+Plan for your future with structured targets.
+
+Add button on top right:
+
+* New Goal
+
+If no goals exist show centered message:
+
+Title:
+
+No active goals
+
+Text:
+
+Setting financial goals is the first step to achieving them.
+Create your first target to start tracking.
+
+Use a target/goal icon in the center.
+
+---
+
+5. Update the AI Advisory page
+
+Left section:
+
+Title:
+
+Your Financial Profile
+
+Fields:
+
+Total Savings input
+Financial Goals textarea
+
+Risk tolerance options:
+
+Low
+Medium
+High
+
+Investment Time Horizon dropdown.
+
+Button:
+
+Get My Investment Plan
+
+Right section:
+
+Title:
+
+Your Personalized Plan
+
+Message when empty:
+
+Your plan will appear here once you fill out your profile.
+
+---
+
+6. Dashboard page
+
+Keep the financial cards:
+
+Monthly Income
+Total Expenses
+Net Savings
+Savings Rate
+
+Also show:
+
+Recent Expenses table
+Spending Breakdown chart
+
+---
+
+7. Design
+
+Use a dark fintech UI theme.
+
+Background: dark navy
+Cards: darker panel with border
+Accent color: green/teal
+
+Cards should have:
+
+rounded corners
+subtle shadows
+consistent spacing
+
+---
+
+8. Backend
+
+Keep backend using Python (Flask).
+
+JavaScript must communicate with backend APIs using fetch().
+
+---
+
+9. Final verification
+
+Ensure the project only contains these languages:
+
+HTML
+CSS
+JavaScript
+Python
+
+Ensure there are no remaining TypeScript files.

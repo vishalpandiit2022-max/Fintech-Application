@@ -73,7 +73,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20">
           <Wallet className="w-6 h-6" />
         </div>
-        <span className="font-display font-bold text-xl tracking-tight text-foreground">NovaFin</span>
+        <span className="font-display font-bold text-xl tracking-tight text-foreground">FinTech</span>
       </div>
 
       <div className="px-6 pb-6">
@@ -137,7 +137,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-background/80 backdrop-blur-xl border-b border-border z-30 flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <Wallet className="w-6 h-6 text-primary" />
-          <span className="font-display font-bold text-lg">NovaFin</span>
+          <span className="font-display font-bold text-lg">FinTech</span>
         </div>
         <button onClick={() => setIsMobileOpen(true)} className="p-2 text-muted-foreground">
           <Menu className="w-6 h-6" />
