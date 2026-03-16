@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account – FinTech</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-form-side">
+      <div class="auth-brand">
+        <div class="auth-brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+        </div>
+        <span class="auth-brand-name">FinTech</span>
+      </div>
+      <div class="auth-card">
+        <h1 class="auth-title">Create account</h1>
+        <p class="auth-subtitle">Start tracking your finances today.</p>
+        <div id="alertBox"></div>
+        <form id="signupForm">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input class="form-control" id="name" type="text" placeholder="Jane Smith" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-control" id="email" type="email" placeholder="name@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" id="password" type="password" placeholder="Minimum 6 characters" required minlength="6" autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="salary">Monthly Salary ($)</label>
+            <input class="form-control" id="salary" type="number" placeholder="e.g. 4000" min="0" step="0.01" required>
+          </div>
+          <button class="btn btn-primary btn-full btn-lg" type="submit" id="signupBtn">Create Account</button>
+        </form>
+        <p class="auth-footer">Already have an account? <a href="/login">Sign in</a></p>
+      </div>
+    </div>
+    <div class="auth-visual">
+      <div class="auth-visual-text">
+        <h2>Your financial journey starts here.</h2>
+        <p>Set goals, track spending, and grow your savings with smart insights.</p>
+      </div>
+    </div>
+  </div>
+  <script src="/js/signup.js"></script>
+</body>
+</html>

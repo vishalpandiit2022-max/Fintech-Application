@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In – FinTech</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-form-side">
+      <div class="auth-brand">
+        <div class="auth-brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+        </div>
+        <span class="auth-brand-name">FinTech</span>
+      </div>
+      <div class="auth-card">
+        <h1 class="auth-title">Welcome back</h1>
+        <p class="auth-subtitle">Enter your details to access your dashboard.</p>
+        <div id="alertBox"></div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-control" id="email" type="email" placeholder="name@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" id="password" type="password" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+          <button class="btn btn-primary btn-full btn-lg" type="submit" id="loginBtn">Sign In</button>
+        </form>
+        <p class="auth-footer">Don't have an account? <a href="/signup">Create one now</a></p>
+      </div>
+    </div>
+    <div class="auth-visual">
+      <div class="auth-visual-text">
+        <h2>Master your financial future.</h2>
+        <p>Track expenses, optimize savings, and get AI-driven insights tailored to your lifestyle.</p>
+      </div>
+    </div>
+  </div>
+  <script src="/js/login.js"></script>
+</body>
+</html>
