@@ -8,7 +8,8 @@ import {
   TrendingUp,
   ArrowUpRight,
   ArrowDownRight,
-  Activity
+  Activity,
+  Receipt
 } from "lucide-react";
 import { 
   AreaChart, 
