@@ -1,0 +1,15 @@
+packages:
+  "recharts": "For rendering beautiful financial charts on the dashboard"
+  "framer-motion": "For page transitions and smooth layout animations"
+  "date-fns": "For formatting dates nicely in the expense list"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging tailwind classes safely"
+
+images:
+  - path: "artifacts/fintech-dashboard/public/images/auth-bg.png"
+    description: "Sleek, dark, abstract futuristic fintech background with subtle glowing teal and deep blue geometric lines and soft gradients"
+    aspect_ratio: "16:9"
+
+notes:
+  - "Assuming React Query and Wouter are installed as per base stack."
+  - "Will use the generated hooks directly from @workspace/api-client-react."

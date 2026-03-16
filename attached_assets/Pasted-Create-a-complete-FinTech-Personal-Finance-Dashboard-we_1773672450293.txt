@@ -1,0 +1,272 @@
+Create a complete FinTech Personal Finance Dashboard web application from scratch.
+
+IMPORTANT REQUIREMENT:
+This is a college project and must ONLY use the following technologies:
+
+Frontend:
+HTML
+CSS
+Vanilla JavaScript
+
+Backend:
+Python (Flask)
+
+Database:
+SQLite
+
+Do NOT use:
+React
+TypeScript
+Next.js
+Vite
+Node.js
+Angular
+Vue
+Any frontend frameworks
+
+The final project must only contain HTML, CSS, JavaScript, and Python files.
+
+---
+
+PROJECT STRUCTURE
+
+fintech-dashboard/
+
+index.html
+login.html
+signup.html
+dashboard.html
+expenses.html
+savings.html
+advisory.html
+profile.html
+
+css/
+style.css
+
+js/
+login.js
+signup.js
+dashboard.js
+expenses.js
+savings.js
+advisory.js
+profile.js
+
+backend/
+app.py
+
+database/
+finance.db
+
+---
+
+FEATURES
+
+1. USER AUTHENTICATION
+
+Signup Page:
+Fields:
+Full Name
+Email
+Password
+Monthly Salary
+
+Login Page:
+Email
+Password
+
+API Routes:
+
+POST /signup
+POST /login
+
+Passwords must be stored in the database.
+
+---
+
+2. DASHBOARD PAGE
+
+Display financial overview cards:
+
+Monthly Salary
+Total Expenses
+Net Savings
+Savings Rate %
+
+Formula:
+
+Net Savings = Salary - Total Expenses
+Savings Rate = (Net Savings / Salary) × 100
+
+Also display a table of recent expenses.
+
+---
+
+3. EXPENSE TRACKER
+
+Allow users to add expenses.
+
+Fields:
+
+Description
+Category
+Amount
+Date
+
+Categories:
+
+Food
+Transport
+Shopping
+Bills
+Entertainment
+Other
+
+APIs:
+
+GET /expenses
+POST /expenses
+
+Expenses must be linked to the logged-in user.
+
+---
+
+4. SAVINGS GOALS
+
+User can create savings goals.
+
+Fields:
+
+Goal Name
+Target Amount
+Months to Achieve Goal
+
+The Target Amount input must allow:
+
+typing numbers manually
+arrow increment/decrement
+
+Display:
+
+Monthly saving required
+
+Formula:
+
+Monthly Saving = Target Amount / Months
+
+---
+
+5. INVESTMENT ADVISORY PAGE
+
+Create a simple advisory section.
+
+Title:
+
+AI Spending Advice
+
+Description:
+
+Provide financial tips based on expenses.
+
+Example logic:
+
+If food spending > 30% of salary
+show suggestion to reduce food expenses.
+
+---
+
+6. PROFILE PAGE
+
+Display:
+
+User name
+Email
+Monthly salary
+
+Allow updating salary.
+
+API:
+
+PUT /salary
+
+---
+
+7. DATABASE STRUCTURE
+
+users
+
+id
+name
+email
+password
+salary
+
+expenses
+
+id
+user_id
+description
+category
+amount
+date
+
+savings_goals
+
+id
+user_id
+goal_name
+target_amount
+months
+
+---
+
+8. FRONTEND RULES
+
+All pages must use:
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="js/file.js"></script>
+
+Use fetch() in JavaScript to communicate with Flask APIs.
+
+---
+
+9. DESIGN
+
+Use a modern dark fintech dashboard style.
+
+Sidebar navigation with:
+
+Dashboard
+Expenses
+Savings Goals
+Investment Advisory
+Profile
+Logout
+
+---
+
+10. IMPORTANT
+
+Ensure the project runs correctly in Replit with Flask backend.
+
+The final repository must contain ONLY these languages:
+
+HTML
+CSS
+JavaScript
+Python
+
+Do not create TypeScript files.
+Do not create React components.
+Do not include unnecessary build tools.
+
+---
+
+After creating the project:
+
+Install Python dependencies
+Start the Flask server
+Verify the website loads correctly in the preview.

@@ -1,22 +1,28 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: FinTech Personal Finance Dashboard API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication
+  - name: expenses
+    description: Expense management
+  - name: savings
+    description: Savings goals
+  - name: profile
+    description: User profile
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +30,223 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /auth/signup:
+    post:
+      operationId: signup
+      tags: [auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignupRequest"
+      responses:
+        "200":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/login:
+    post:
+      operationId: login
+      tags: [auth]
+      summary: Login user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/logout:
+    post:
+      operationId: logout
+      tags: [auth]
+      summary: Logout user
+      responses:
+        "200":
+          description: Logged out
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get current user
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /expenses:
+    get:
+      operationId: getExpenses
+      tags: [expenses]
+      summary: Get all expenses for current user
+      responses:
+        "200":
+          description: List of expenses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Expense"
+    post:
+      operationId: createExpense
+      tags: [expenses]
+      summary: Create a new expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateExpenseRequest"
+      responses:
+        "201":
+          description: Expense created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Expense"
+
+  /expenses/{id}:
+    delete:
+      operationId: deleteExpense
+      tags: [expenses]
+      summary: Delete an expense
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+
+  /savings:
+    get:
+      operationId: getSavingsGoals
+      tags: [savings]
+      summary: Get all savings goals for current user
+      responses:
+        "200":
+          description: List of savings goals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SavingsGoal"
+    post:
+      operationId: createSavingsGoal
+      tags: [savings]
+      summary: Create a new savings goal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSavingsGoalRequest"
+      responses:
+        "201":
+          description: Savings goal created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SavingsGoal"
+
+  /savings/{id}:
+    delete:
+      operationId: deleteSavingsGoal
+      tags: [savings]
+      summary: Delete a savings goal
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+
+  /profile/salary:
+    put:
+      operationId: updateSalary
+      tags: [profile]
+      summary: Update user salary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSalaryRequest"
+      responses:
+        "200":
+          description: Salary updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  /dashboard:
+    get:
+      operationId: getDashboard
+      tags: [profile]
+      summary: Get dashboard summary
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +257,182 @@ components:
       required:
         - status
 
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+
+    SignupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        salary:
+          type: number
+      required:
+        - name
+        - email
+        - password
+        - salary
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - email
+        - password
+
+    AuthResponse:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/User"
+        message:
+          type: string
+      required:
+        - user
+        - message
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        salary:
+          type: number
+      required:
+        - id
+        - name
+        - email
+        - salary
+
+    Expense:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        description:
+          type: string
+        category:
+          type: string
+        amount:
+          type: number
+        date:
+          type: string
+      required:
+        - id
+        - userId
+        - description
+        - category
+        - amount
+        - date
+
+    CreateExpenseRequest:
+      type: object
+      properties:
+        description:
+          type: string
+        category:
+          type: string
+          enum: [Food, Transport, Shopping, Bills, Entertainment, Other]
+        amount:
+          type: number
+        date:
+          type: string
+      required:
+        - description
+        - category
+        - amount
+        - date
+
+    SavingsGoal:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        goalName:
+          type: string
+        targetAmount:
+          type: number
+        months:
+          type: integer
+        monthlySaving:
+          type: number
+      required:
+        - id
+        - userId
+        - goalName
+        - targetAmount
+        - months
+        - monthlySaving
+
+    CreateSavingsGoalRequest:
+      type: object
+      properties:
+        goalName:
+          type: string
+        targetAmount:
+          type: number
+        months:
+          type: integer
+      required:
+        - goalName
+        - targetAmount
+        - months
+
+    UpdateSalaryRequest:
+      type: object
+      properties:
+        salary:
+          type: number
+      required:
+        - salary
+
+    DashboardSummary:
+      type: object
+      properties:
+        salary:
+          type: number
+        totalExpenses:
+          type: number
+        netSavings:
+          type: number
+        savingsRate:
+          type: number
+        recentExpenses:
+          type: array
+          items:
+            $ref: "#/components/schemas/Expense"
+      required:
+        - salary
+        - totalExpenses
+        - netSavings
+        - savingsRate
+        - recentExpenses
